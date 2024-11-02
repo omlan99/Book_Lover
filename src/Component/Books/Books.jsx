@@ -14,7 +14,7 @@ const Books = () => {
       <div className="grid md:grid-cols-3 gap-6">
         {books.map(singleBook => <Book key={singleBook.bookId} book={singleBook}></Book>
         )}
-        {console.log(books)}
+      
       </div>
     </div>
   );
