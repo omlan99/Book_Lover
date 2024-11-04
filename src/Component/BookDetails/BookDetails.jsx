@@ -1,4 +1,5 @@
 import { useLoaderData, useParams } from "react-router-dom";
+import { addToStoredList } from "../../Utility/addToDB";
 
 const BookDetails = () => {
   const { bookId } = useParams();
@@ -6,9 +7,14 @@ const BookDetails = () => {
   const data = useLoaderData();
   console.log(data);
   const foundBook = data.find((book) => book.bookId === id);
-//   const {image, bookName} = foundBook
+//   const {image, bookName, author, category,review,totalPages,yearOfPublishing,rating, bookId } = foundBook
   console.log(foundBook);
   const allTag = foundBook.tags
+
+  const handleRead = (id) =>{
+        addToStoredList(id)
+        console.log(typeof(id))
+}
   return (
     <div className="hero bg-base-200 min-h-screen pb-40">
       <div className="hero-content p-20 flex-col lg:flex-row">
@@ -43,7 +49,7 @@ const BookDetails = () => {
             <p className="font-semibold">{foundBook.rating}</p>
           </div>
           <div className="flex gap-4 mt-8">
-          <button className="btn btn-primary py-5 px-7 h-full">Read</button>
+          <button onClick={() => handleRead(foundBook.bookId)} className="btn btn-primary py-5 px-7 h-full">Read</button>
           <button className="btn btn-primary py-5 px-7 h-full">Wishlist</button>
           </div>
         </div>

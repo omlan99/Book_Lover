@@ -8,9 +8,12 @@ const NavBar = () => {
         
       </li>
       <li>
+        <NavLink to={'/listedBooks'}>
         <a className="hover:text-[#23BE0A] hover:outline-[#23BE0A]">
           Listed Books
         </a>
+        </NavLink>
+        
       </li>
       <li>
         <a className="hover:text-[#23BE0A] hover:outline-[#23BE0A]">
